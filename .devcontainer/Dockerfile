@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/devcontainers/anaconda:1-3
 
 
-RUN useradd -u 5005 k8s 
+RUN useradd -u 5005 -m "/workspaces" k8s 
 USER k8s
 
 # Copy environment.yml (if found) to a temp location so we update the environment. Also
