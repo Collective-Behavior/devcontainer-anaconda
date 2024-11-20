@@ -11,6 +11,6 @@ RUN if [ -f "/tmp/conda-tmp/environment.yml" ]; then umask 0002 && /opt/conda/bi
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
 
-RUN useradd -u 5005 -d "/workspaces" -m -s /usr/bin/bash k8s
-RUN if [ -f "/workspaces" ]; then chown 5005 /workspaces; fi
+RUN useradd -u 5005 -g users -d "/workspaces" -m -s /usr/bin/bash k8s
+RUN if [ -f "/workspaces" ]; then chown -R 5005 /workspaces; fi
 USER k8s
