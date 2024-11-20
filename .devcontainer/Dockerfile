@@ -1,5 +1,9 @@
 FROM mcr.microsoft.com/devcontainers/anaconda:1-3
 
+
+RUN useradd -u 5005 k8s 
+USER k8s
+
 # Copy environment.yml (if found) to a temp location so we update the environment. Also
 # copy "noop.txt" so the COPY instruction does not fail if no environment.yml exists.
 COPY environment.yml* .devcontainer/noop.txt /tmp/conda-tmp/
